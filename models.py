@@ -9,7 +9,7 @@ import re
 class AutoBase(SQLModel):
     marca: str=Field(index=True)
     modelo: str
-    anio: int=Field(ge=1990, le=datetime.now().year)
+    año: int=Field(ge=1990, le=datetime.now().year)
     numero_chasis: str = Field(unique=True, index=True)
 
     @validator('numero_chasis')
@@ -26,7 +26,7 @@ class AutoCreate(AutoBase):
 class AutoUpdate(SQLModel):
     marca: Optional[str] = None
     modelo: Optional[str] = None
-    anio: Optional[int] = Field(None, ge=1990, le=datetime.now().year)
+    año: Optional[int] = Field(None, ge=1990, le=datetime.now().year)
     numero_chasis: Optional[str] = None
 
 ## Modelo Venta
