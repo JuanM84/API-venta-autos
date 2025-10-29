@@ -1,0 +1,14 @@
+# Ignorar el entorno virtual de Python
+venv/
+__pycache__/
+
+# Ignorar archivos compilados de Python
+*.pyc
+*.pyd
+
+# Ignorar archivos de configuración de entorno (contiene la contraseña de la DB)
+.env
+
+# Ignorar archivos de editor de texto o sistema
+*.swp
+.DS_Store
