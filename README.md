@@ -82,22 +82,24 @@ Los siguientes ejemplos utilizan el puerto 8080, según la configuración de des
 1. **Crear un Auto:**
 POST http://localhost:8080/autos/
 ### Body (JSON):
+```json
 {
     "marca": "Chevrolet",
     "modelo": "Cruze",
     "anio": 2024,
     "numero_chasis": "CHV2024CRZ789012"
 }
-
+```
 2. **Crear una Venta:**
 POST http://localhost:8080/ventas/
 ### Body (JSON):
+```json
 {
     "nombre_comprador": "María Giménez",
     "precio": 35500.00,
     "auto_id": 1,
     "fecha_venta": "2025-10-29T11:55:00"
 }
-
+```
 3. **Obtener Auto con Ventas Relacionadas:**
 GET http://localhost:8080/autos/1/with-ventas
