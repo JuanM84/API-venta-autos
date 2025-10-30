@@ -75,11 +75,13 @@ La API implementa todos los *endpoints* CRUD requeridos y las funcionalidades de
 | **Venta** | `GET` | `/ventas/comprador/{nombre}` | Búsqueda por nombre de comprador (parcial). |
 | **Relación**| `GET` | `/ventas/{venta_id}/with-auto` | Obtiene la venta con la información completa del auto. |
 
-## Ejemplos de Uso de la APILos siguientes ejemplos utilizan el puerto 8080, según la configuración de desarrollo
+## Ejemplos de Uso de la API
 
-1. Crear un Auto:
+Los siguientes ejemplos utilizan el puerto 8080, según la configuración de desarrollo
+
+1. **Crear un Auto:**
 POST http://localhost:8080/autos/
-# Body (JSON):
+### Body (JSON):
 {
     "marca": "Chevrolet",
     "modelo": "Cruze",
@@ -87,9 +89,9 @@ POST http://localhost:8080/autos/
     "numero_chasis": "CHV2024CRZ789012"
 }
 
-2. Crear una Venta:
+2. **Crear una Venta:**
 POST http://localhost:8080/ventas/
-# Body (JSON):
+### Body (JSON):
 {
     "nombre_comprador": "María Giménez",
     "precio": 35500.00,
@@ -97,5 +99,5 @@ POST http://localhost:8080/ventas/
     "fecha_venta": "2025-10-29T11:55:00"
 }
 
-3. Obtener Auto con Ventas Relacionadas: 
+3. **Obtener Auto con Ventas Relacionadas:**
 GET http://localhost:8080/autos/1/with-ventas
