@@ -60,19 +60,20 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 ## Endpoints y Funcionalidades Implementadas
 
-La API implementa todos los endpoints CRUD requeridos y las funcionalidades de búsqueda/filtrado, cumpliendo con la especificación del trabajo práctico:
+La API implementa todos los *endpoints* CRUD requeridos y las funcionalidades de búsqueda/filtrado, cumpliendo con la especificación del trabajo práctico:
 
-Entidad,Método,Endpoint,Descripción
-Auto,POST,/autos/,Crea un nuevo auto.
-Auto,GET,/autos/,"Listado con Paginación (skip, limit) y Filtros (marca, modelo)."
-Auto,PUT,/autos/{auto_id},Actualiza un auto.
-Auto,DELETE,/autos/{auto_id},Elimina el auto. Implementa CASCADE DELETE (borra las ventas asociadas).
-Auto,GET,/autos/chasis/{numero_chasis},Búsqueda por número de chasis.
-Relación,GET,/autos/{auto_id}/with-ventas,Obtiene el auto y su lista de ventas asociadas.
-Venta,POST,/ventas/,Crea una nueva venta. (Requiere auto_id existente)
-Venta,GET,/ventas/,"Listado con Filtros por rango de Precio (min_precio, max_precio) y Fecha."
-Venta,GET,/ventas/comprador/{nombre},Búsqueda por nombre de comprador (parcial).
-Relación,GET,/ventas/{venta_id}/with-auto,Obtiene la venta con la información completa del auto.
+| Entidad | Método | Endpoint | Descripción |
+| :--- | :--- | :--- | :--- |
+| **Auto** | `POST` | `/autos/` | Crea un nuevo auto. |
+| **Auto** | `GET` | `/autos/` | Listado con **Paginación** (`skip`, `limit`) y **Filtros** (`marca`, `modelo`). |
+| **Auto** | `PUT` | `/autos/{auto_id}` | Actualiza un auto. |
+| **Auto** | `DELETE`| `/autos/{auto_id}` | Elimina el auto. **Implementa CASCADE DELETE** (borra las ventas asociadas). |
+| **Auto** | `GET` | `/autos/chasis/{numero_chasis}` | Búsqueda por número de chasis. |
+| **Relación**| `GET` | `/autos/{auto_id}/with-ventas` | Obtiene el auto y su lista de ventas asociadas. |
+| **Venta** | `POST` | `/ventas/` | Crea una nueva venta. (Requiere `auto_id` existente) |
+| **Venta** | `GET` | `/ventas/` | Listado con **Filtros** por rango de **Precio** (`min_precio`, `max_precio`) y **Fecha**. |
+| **Venta** | `GET` | `/ventas/comprador/{nombre}` | Búsqueda por nombre de comprador (parcial). |
+| **Relación**| `GET` | `/ventas/{venta_id}/with-auto` | Obtiene la venta con la información completa del auto. |
 
 ## Ejemplos de Uso de la APILos siguientes ejemplos utilizan el puerto 8080, según la configuración de desarrollo
 
