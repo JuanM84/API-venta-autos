@@ -75,13 +75,23 @@ La API implementa todos los *endpoints* CRUD requeridos y las funcionalidades de
 | **Venta** | `GET` | `/ventas/comprador/{nombre}` | Búsqueda por nombre de comprador (parcial). |
 | **Relación**| `GET` | `/ventas/{venta_id}/with-auto` | Obtiene la venta con la información completa del auto. |
 
+## Validaciones Específicas del Dominio
+
+**Año del Auto:** Validado en el modelo Pydantic (`AutoBase`) para estar entre 1900 y el año actual.
+
+**Chasis Único:** El campo `numero_chasis` es único a nivel de base de datos.
+
+**Integridad Referencial:** La clave foránea `auto_id` en `Venta` es de tipo NOT NULL.
+
+**Eliminación en Cascada (Cascade Delete):** La eliminación de un Auto (`DELETE /autos/{auto_id}`) desencadena la eliminación automática de todas las Ventas que referencian ese Auto, garantizando que no queden registros huérfanos.
+
 ## Ejemplos de Uso de la API
 
 Los siguientes ejemplos utilizan el puerto 8080, según la configuración de desarrollo
 
 1. **Crear un Auto:**
-POST http://localhost:8080/autos/
-### Body (JSON):
+POST http://localhost:8000/autos/
+
 ```json
 {
     "marca": "Chevrolet",
@@ -91,8 +101,8 @@ POST http://localhost:8080/autos/
 }
 ```
 2. **Crear una Venta:**
-POST http://localhost:8080/ventas/
-### Body (JSON):
+POST http://localhost:8000/ventas/
+
 ```json
 {
     "nombre_comprador": "María Giménez",
@@ -102,4 +112,4 @@ POST http://localhost:8080/ventas/
 }
 ```
 3. **Obtener Auto con Ventas Relacionadas:**
-GET http://localhost:8080/autos/1/with-ventas
+GET http://localhost:8000/autos/1/with-ventas
